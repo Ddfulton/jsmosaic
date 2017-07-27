@@ -2,7 +2,7 @@ $(document).ready(function() {
     window.mosaics = [];
     window.localMosaics = [];
     window.counter = 0;
-    window.selectedMosaic = 1;
+    window.currId = 1;
 
     $.getJSON("/data/compiled.json", function(json) {
         processCSVs(json);
@@ -97,7 +97,14 @@ function refineMosaic(mosaic, Id) {
 function buildMasterTable() {
     
     $("tr").click(function() {
+        var prevId = "tr#" + window.currId.toString();
+
+        $(prevId).css("background-color", "transparent");
+
+        window.currId = $(this).attr("id");
+
         var currId = $(this).attr("id");
+        $(this).css("background-color", "rgba(0, 200, 100, 0.4)")
         console.log(window.mosaics[currId]);
         plotMosaic(currId);
         // plotNN(currId);
