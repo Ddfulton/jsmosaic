@@ -1,61 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Retinal Mosaics</title>
 
-<!--Plotly-->
-<script src="js/plotly-latest.min.js"></script>
-
-<!--jQuery-->	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!--DataTables JS-->
-<script src="js/jquery.dataTables.min.js"></script>
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!--Styles-->
-<link rel="stylesheet" type="text/css" href="styles/style.css">
-
-<!--Call app.js only after everything is rendered-->
-<script src="js/app.js"></script>
-
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="description">
+    <title>Do Rush</title>
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <link crossorigin="anonymous" href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity=
+    "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    rel="stylesheet"><!--PAPER TIM-->
+    <link rel="shortcut icon" href="ic://i.imgur.com/nXbdnze.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel=
+    "stylesheet" type="text/css">
 </head>
+
+
+
 <body>
-<div id="container">
+<div id="container" class="text-center">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+        <div class="jumbotron" id="title" style="background: transparent;">
+            <h1>Sigma Phi Rush Fall 2017</h1>
+        </div>
+        </div>
 
-<div id="top-banner" class="jumbotron">
-<h2>Retinal Mosaics</h2>
-</div>
+        <div class="row text-center">
+            <div id="info">
 
-<div class="row" id="top-row">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-4" id="mosaic">
-		<div id="tester"></div>
-	</div>
-	<!-- <div class="col-sm-4" id="nn">
-		<div id="nn-plot"></div>
-	</div> -->
-	<div class="col-sm-4" id="drp">
-		<div id="drp-plot"></div>
-	</div>
-	<div class="col-sm-2"></div>
-</div>
+                <h3>For each event, rides will be given from Wendy's 30 minutes prior to start</h3>
+                <h3>If you want one <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyIuVXpaDt0NAqEYfa_nNAKrmGcNqGrrWcf4YNbhAZ9gYBVA/viewform" target="_blank">add your name to the rush list</a></h3><br>
+                <br>
+                <br>
+                <h2>Taco Truck</h2>
+                <p>You will come to the duplex and get some free tacos while meeting brothers and other rushees</p>
+                <h4><i>Saturday, August 26</i></h4>
+                <h5 class="location"><b>703 North Columbia</b></h5>
+                <br>
 
-<div class="row" id="middle-row">
-	<table id="master-table">
-    <thead>
-        <tr>
-            <td>Common name</td>
-            <td>Latin name</td>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-</div>
+                <h2>Eno Quarry</h2>
+                <p>We will go swimming at the Eno Quarry to cool off on a hot summer's day</p>
+                <h4><i>Sunday, August 27</i></h4>
+                <h5 class="location"><b>Eno River State Park, Durham, NC</b></h5>
+                <br>
 
+                <h2>Open House and Jam Session</h2>
+                <p>Chess. Poker. Fifa. Music. Whatever you bring. Casual #chilling.</p>
+                <h4><i>Monday, August 28</i></h4>
+                <h5 class="location"><b>703 North Columbia</b></h5>
+                <br>
+
+                <h2>Independent Brother Events</h2>
+                <p>A few brothers, a few rushees, an event of your choosing</p>
+                <h4><i>Tuesday, August 29</i></h4>
+                <h5 class="location"><b>All around town</b></h5>
+                <br>
+
+                <h2>Brother Dinners (Invite Only)</h2>
+                <p>Brothers will invite you to get dinner</p>
+                <h4><i>Thursday, August 31</i></h4>
+                <h5 class="location"><b>703 North Columbia</b></h5>
+                <br>
+
+                <h2>Bonfire (Invite Only)</h2>
+                <p>In 2017, Brother Derek Fulton, T'15, heroically built a firepit against all odds</p>
+                <p> We will enjoy this firepit by having a bonfire. We might even break out the BB gun for some casual shooting</p>
+                <h4>Friday, September 1</h4>
+                <h5 class="location""><b>3 Cobb Terrace</b></h5>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
 </div>
 </body>
+
+
+
+
+
+<style>
+body {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.68),
+    rgba(0, 0, 0, 0.68)
+    ),
+  url(https://s-media-cache-ak0.pinimg.com/originals/e6/e4/77/e6e477108fa2d58954b102e708dcd373.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  font-family: 'roboto';
+  color: white;
+}
+
+.location {
+    color: green;
+}
+</style>
 </html>

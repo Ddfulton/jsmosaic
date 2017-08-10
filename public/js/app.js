@@ -2,15 +2,15 @@ $(document).ready(function() {
     window.mosaics = [];
     window.localMosaics = [];
     window.counter = 0;
-    window.currId = 1;
+    window.currId = 0;
 
     $.getJSON("/data/compiled.json", function(json) {
         processCSVs(json);
     }); 
 
 
-    window.setTimeout(buildMasterTable, 500);
-    window.setTimeout(plotInitial, 500);
+    window.setTimeout(buildMasterTable,3000);
+    window.setTimeout(plotInitial, 3000);
 
 
 
@@ -46,10 +46,10 @@ function plotInitial() {
 }
 
 function parseMosaic(allText) {
+    console.log("Calling parseMosaic on " + allText);    
     var isValid = true;
     console.log(Id);
     var localMosaics = [];
-
     var allTextLines = allText.split(/\r\n|\n/);
     curr_mosaic = {};
     var i = 0;
@@ -77,11 +77,12 @@ function parseMosaic(allText) {
 
     // Add to the global variable and the master table
     var refinedMosaic = refineMosaic(curr_mosaic);
-    var Id = window.mosaics.length + 1;  
+    var Id = window.mosaics.length;  
     refinedMosaic.Id = Id;
     console.log(Id);
     window.mosaics.push(refinedMosaic);
     var row = "<tr id=\"" + Id + "\"><td>" + refinedMosaic.commonName + "</td><td>" + refinedMosaic.latinName + "</td></tr>";
+    console.log("Adding row: " + row + " to the table");
     $(row).appendTo( "#master-table tbody" );
 }
 
@@ -97,18 +98,18 @@ function refineMosaic(mosaic, Id) {
 function buildMasterTable() {
     
     $("tr").click(function() {
-        var prevId = "tr#" + window.currId.toString();
-
-        $(prevId).css("background-color", "transparent");
-
-        window.currId = $(this).attr("id");
-
-        var currId = $(this).attr("id");
+        var prevId = window.currId;        
+        window.currId = $(this).attr("id");        
+        plotMosaic(window.currId);
+        plotDRP(window.currId);
+ 
         $(this).css("background-color", "rgba(0, 200, 100, 0.4)")
-        console.log(window.mosaics[currId]);
+        console.log("Plotting mosaic number: " + window.mosaics[currId]);
         plotMosaic(currId);
         // plotNN(currId);
         plotDRP(currId);
+        $(this).css("background-color", "rgba(0, 200, 100, 0.3)");
+        $("tr#" + prevId).css("background-color",  "transparent");
     });
 
     $('#master-table').DataTable();
@@ -118,13 +119,12 @@ function buildMasterTable() {
 function plotMosaic(Id) {
     var X = window.mosaics[Id].X;
     var Y = window.mosaics[Id].Y;
-    var TESTER = document.getElementById('tester');
+    var TESTER = document.getElementById('mosaic-plot');
     var trace = {
         x: X,
         y: Y,
-        text: ['A','B','C'],
         textposition: 'top-center',
-        mode: 'markers+text'
+        mode: 'markers'
     };
 
     var layout = {
