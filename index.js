@@ -10,7 +10,14 @@ app.set('port', 8080);
 // Define static directories
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve the pdf
+app.use('/pdf', express.static(__dirname + '/public/rush.pdf'));
+
 app.get('/mosaics', function (req, res) {
+  res.sendFile(__dirname + '/public/mosaics.html');
+})
+
+app.get('/test', function (req, res) {
   res.sendFile(__dirname + '/public/mosaics.html');
 })
 
