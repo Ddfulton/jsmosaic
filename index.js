@@ -17,8 +17,8 @@ app.get('/mosaics', function (req, res) {
   res.sendFile(__dirname + '/public/mosaics.html');
 })
 
-app.get('/test', function (req, res) {
-  res.sendFile(__dirname + '/public/mosaics.html');
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/public/rush.pdf');
 })
 
 // Listen for requests on '/'
